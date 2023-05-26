@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar"  [ngClass]="toggleSidenavactive ? 'menu-active' : ''">
+      <app-sidebar></app-sidebar>
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+    <app-header></app-header>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,269 @@
+<section class="container-fluid page--heading">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page--heading__title d-md-flex d-lg-flex py-4 align-items-center">
+              <h1 class="mb-md-0 mb-lg-0 mb-2">Create New Booking Profile</h1>
+              <div class="ms-auto">
+                <button class="btn btn-secondary me-4">Today</button>
+                <button class="btn btn-primary">Manage Bookings</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-4">
+        <!-- tabs -->
+        <div>
+          <tabset>
+            <tab heading="Booking Theme" id="tab1">Booking Theme content</tab>
+            <tab heading="Venue & Duration" id="tab2">Venue & Duration content </tab>
+            <tab heading="Customer Type" id="tab3">Customer Type content</tab>
+            <tab heading="Create Tickets/Services" id="tab4">Create Tickets/Services content</tab>
+            <tab heading="View Profile" id="tab5" [active]="active">
+              <div class="text-center">
+                <h3>View & Create Customer Detail Form</h3>
+              </div>
+              <div>
+                <img class="img-fluid" src="../../../assets/images/city-palace.png" alt="City Palace" />
+              </div>
+              <div class="palace-content">
+                <div class="row justify-content-center">
+                  <div class="col col-lg-10">
+                    <div class="card mb-3 border-0 eternal-panel">
+                      <div class="row align-items-center text-white">
+                        <div class="col-md-2">
+                          <img src="../../../assets/images/eternal.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-10">
+                          <div class="card-body p-0">
+                            <h5 class="card-title text-white">The City Palace, Udaipur</h5>
+                            <h3 class="card-text text-white">Eternal Mewar, Udaipur</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </tab>
+            <tab heading="Create Ticket" id="tab6">Create Ticket content</tab>
+          </tabset>
+        </div>
+      </div>
+
+      <div class="col-md-6 ngx-editor-panel">
+        <h4>Visit City Palace, Udaipur</h4>
+        <div class="NgxEditor__Wrapper">
+          <ngx-editor height="250px" minHeight="250px" [editor]="editor" [ngModel]="html" [disabled]="false"
+            [placeholder]="'Type here...'"></ngx-editor>
+          <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+        </div>
+        <div *ngFor="let inputitem of editorFields; let i = index">
+          <h4>{{inputitem.item}}</h4>
+          <div class="ngx-editor-panel__input d-flex justify-content-around align-items-center">
+            <input type="text" class="form-control" [placeholder]="inputitem.placeholder" />
+            <a href="#" (click)="removeInput(i)" class="ngx-editor-panel__close text-center ms-4">X</a>
+          </div>
+        </div>
+        <div class="location-map mt-4">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="d-flex justify-content-between">
+                <h5>Location 2</h5>
+                <a href="#">Remove</a>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 border-0 bg-transparent ">
+            <div class="row g-0 ">
+              <div class="col">
+                <img src="../../../assets/images/location-pin.png" class="img-fluid rounded-start mt-4" alt="" />
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title">Galaxy Auditorium Behind moon,
+                    Star Nagar, Between Sun & Mars,
+                    Earth City, Milkey Way Galaxy
+                    PIN : 313001</h5>
+                  <div class="row g-0 d-flex align-items-center">
+                    <div class="col">
+                      <img src="../../../assets/images/location-pin2.png" class="img-fluid rounded-start" alt="" />
+                    </div>
+                    <div class="col-md-10">
+                      <div class="card-body px-0">
+                        <p class="card-text">View on Map</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="add-more-fields-btn">
+          <button type="button" class="btn btn-primary btn-lg d-block w-100">Add More Field</button>
+        </div>
+        <div>
+          <h4>Terms & Conditions</h4>
+          <div class="ngx-editor-panel__input d-flex justify-content-around align-items-center">
+            <input type="text" class="form-control" placeholder="Organiser name here" />
+            <a href="#" class="ngx-editor-panel__close text-center ms-4">X</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6 mt-4">
+        <div class="card border-0 shadow">
+          <div class="card border-0">
+            <div class="card-body">
+              <h5 class="card-title"> Customer Details</h5>
+              <div class="container">
+                <div class="row justify-content-md-center">
+                  <div class="col col-lg-8">
+                    <select class="form-select predefined-select mb-4">
+                      <option disabled>Select Pre Defined Form</option>
+                      <option>Pre Defined Form</option>
+                      <option>Pre Defined Form 2</option>
+                      <option>Pre Defined Form 3</option>
+                    </select>
+                  </div>
+
+                  <div class="custom-form-panel">                  
+                  <h5 class="card-title mb-4">Create a Custom Form</h5>
+                  <div class="row">
+                    <div class="col-md-12">                   
+                      <form>
+                      <ul class="list-unstyled">
+                        <li *ngFor="let itemList of list"> 
+                          <div class="row justify-content-md-center mt-3 mb-4 align-items-center">
+                            <div class="col-md-2 text-center">
+                              <img src="../../../assets/images/drag-icon.png" alt="" />
+                              </div>
+                              <div class="col-md-8">
+                                <label>{{itemList.item}}</label>
+                            <input [type]="itemList.type" class="form-control" />   
+                              </div>
+                              <div class="col-md-2 text-center">
+                                <img src="../../../assets/images/edit-icon.png" alt="" />
+                              </div>
+                              </div>
+
+                                     
+                        </li>
+                      </ul>
+                    </form>
+                    </div>
+                  </div>
+                  <span dropdown (onShown)="onShown()" (onHidden)="onHidden()" (isOpenChange)="isOpenChange()">
+                    <a href id="basic-link" dropdownToggle (click)="false" aria-controls="basic-link-dropdown">
+                      <button type="button" class="custom-form-btn btn btn-primary btn-lg d-block w-100">
+                        + Add a Field here
+                      </button></a>
+                    <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu shadow pt-0" role="menu"
+                      aria-labelledby="basic-link">
+                      <li class="select-type">
+                        <a class="dropdown-item" href="#">Select Input Type</a>
+
+                      </li>
+                      <li *ngFor="let choice of items; let i = index">
+                        <a class="dropdown-item" (click)="openModal(template, choice)">{{choice}}</a>
+                      </li>
+                    </ul>
+                  </span>
+                </div>
+
+               
+
+
+
+                  <div class="row justify-content-md-center">
+                    <div class="col col-lg-8">
+                      <button class="btn btn-primary btn-lg d-block w-100">Pay & Book Tickets</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<ng-template #template>
+  <div class="modal-body">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+        <h4 class="modal-title pull-left">Input</h4>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+        <div><small class="text-muted small-text">Your E-Ticket will be sent to this email ID.</small></div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center mt-3 mb-4">
+      <div class="col-md-2 text-center">
+        <img src="../../../assets/images/add-icon.png" alt="" />
+      </div>
+      <div class="col-md-8">
+        <div>
+          <form [formGroup]="itemform">
+          <input type="text" class="form-control" formControlName="fieldName" placeholder="Enter Email ID (To be filled by customer)" />
+        </form>
+        </div>
+      </div>
+      <div class="col-md-2 text-center">
+        <img src="../../../assets/images/remove-icon.png" alt="" />
+      </div>
+    </div>
+
+    
+
+    <div class="row">
+      <div class="col-md-12">
+        
+        <div class="d-flex">
+          <div>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label ms-2" for="exampleCheck1">Required</label>
+            <div>
+              <small class="text-muted small-text">Mandatory: field to be filled by customers.</small> </div>
+          </div>
+          <div class="ms-auto">
+            <button type="submit" class="btn btn-outline-primary me-3" (click)="closeModel()">Cancel</button>
+            <button type="submit" class="btn btn-primary" (click)="addCustomFields(itemform)">Save</button>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+
+
+  </div>
+</ng-template>
